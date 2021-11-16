@@ -12,11 +12,16 @@ function checkNumber(){
   const value = parseInt(answerBox.value);
   if(randomNumber == value){
     mainText.innerHTML = "You've guessed!"
+    okButton = document.getElementById('ok');
+    okButton.style.display = "none";
+    reloadButton = document.getElementById('reload');
+    reloadButton.style.display = "block";
+    //refreshThePage();
   }
   if(value > randomNumber){
     mainText.innerHTML = "Lesser!"
   }
-  if(value < randomNumber){
+  else if(value < randomNumber){
     mainText.innerHTML = "Bigger!"
   }
   if(!value){
@@ -25,4 +30,7 @@ function checkNumber(){
   if(value > 10 || value < 1){
     mainText.innerHTML = "Your answer is not in the set boundaries"
   }
+}
+function refreshThePage() {
+  location.reload();
 }
